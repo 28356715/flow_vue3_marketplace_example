@@ -7,7 +7,6 @@
     text-color="black"
     active-text-color="#3781ED"
     :ellipsis="false"
-    @select="handleSelect"
     style="font-weight:700;height: 45px;"
     background-color="#ffffff00"
   >

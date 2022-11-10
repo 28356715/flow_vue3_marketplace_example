@@ -20,7 +20,7 @@ fcl.config({
     // "app.detail.icon":"https://placekitten.com/g/200/200" //dapp icon
 
     // 脚本和交易中的地址替换
-    "0xPioneerNFT":flow.VUE_APP_PIONEERNFT,
+    // "0xPioneerNFT":flow.VUE_APP_PIONEERNFT,
     "0xNonFungibleToken":flow.VUE_APP_NonFungibleToken,
     "0xFlowToken":flow.VUE_APP_FlowToken,
     "0xFungibleToken":flow.VUE_APP_FungibleToken,
