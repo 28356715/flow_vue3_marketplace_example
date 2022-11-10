@@ -1,4 +1,4 @@
-# vue3_ts_demo
+# flow_vue3_marketplace_example
 
 ## Project setup
 ```
