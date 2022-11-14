@@ -16,7 +16,6 @@
     <el-menu-item class="menu-item-font" index="2" @click="goTrade">交易市场</el-menu-item>
     <el-menu-item class="menu-item-font" index="3" @click="goMintNft">铸造</el-menu-item>
      <el-menu-item  class="menu-item-font" index="4" @click="goCollections">Collections</el-menu-item>
-    <!-- <el-menu-item class="menu-item-font" index="4" @click="logout">Connet Wallet</el-menu-item> -->
     <el-menu-item  class="menu-item-font" v-if="!userWalletAddress" index="5" @click="login">Connet Wallet</el-menu-item>
     <el-menu-item class="menu-item-font"  v-else index="6" @click="logout">Log out</el-menu-item>
   </el-menu>
@@ -38,8 +37,6 @@ const global  = getCurrentInstance()!.appContext.config.globalProperties
 
 const setUser = ((user)=>{
   userWalletAddress.value =  user.addr
-  console.log("currentUser信息====="+JSON.stringify(user))
-
 })
 const userinfo = ref(global.$fcl.currentUser.subscribe(setUser))
 
@@ -52,7 +49,6 @@ const userinfo = ref(global.$fcl.currentUser.subscribe(setUser))
         await global.$fcl.unauthenticate()
         userWalletAddress.value =  ""
 })
-
 
 //导航
 const router = useRouter()
