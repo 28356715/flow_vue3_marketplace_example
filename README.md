@@ -38,7 +38,7 @@ npm run serve
 npm run build
 ```
 
-## 4.Directory Structure
+## 6.Directory Structure
 
  - \cadence: Cadence Contract.
  - \config\flow.config.js: Contract address configuration.
@@ -46,5 +46,8 @@ npm run build
  - \src\flow: Query scripts & transaction scripts, ts code interacts with the chain through these scripts.
  - \src\view: vue .
  - \src\main.ts: Entry file for the project.
+
+## 7.Video Courses
+- [Video Courses](https://www.bilibili.com/video/BV1ct4y1T7uc/?spm_id_from=333.788.recommend_more_video.2&vd_source=ca965131813ddd4578944b811c237435)
 
 
