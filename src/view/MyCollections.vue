@@ -6,7 +6,6 @@
           <el-tab-pane label="collection" name="first">
             <div v-if="collectionNfts.length==0">网络错误 或是 钱包里没有nft,可以去铸造页面铸造专属自己的nft~</div>
             <div v-else>
-                <!-- <div style="padding: 30px 0 0 30px;"> -->
                 <div class = "content-card-row"
                 v-for="nft in collectionNfts"
                 :key="nft.id"
@@ -77,7 +76,6 @@
                         </div>
                   </div>
                 </el-card>  
-                <!-- </div> -->
                </div>
              </div>
           </el-tab-pane>
@@ -139,7 +137,7 @@
        let res = await flow.$fcl.query({
           cadence:GET_OWNER_NFT,
           args:(arg,t)=>[
-            arg(addr,t.Address),//recipient: Address,
+            arg(addr,t.Address),
           ],
         })
 
@@ -150,25 +148,23 @@
         }
 
       }catch(err){
-        console.log("err==========="+err)
+        console.log("err::"+err)
       }
  }
 //nft上架出售
 const create_listing =  async (nft,saleDetails) =>{
-  console.log("id====="+JSON.stringify(nft.id)+"===price====="+saleDetails.price)
     try{
         let res=await golbal.$fcl.mutate({
           cadence: CREATE_LISTING,
           args:(arg,t)=>[
-            arg(nft.id,t.UInt64),//ecipient: Address,
-            arg(saleDetails.price,t.UFix64),//name: String
+            arg(nft.id,t.UInt64),
+            arg(saleDetails.price,t.UFix64),
           ],
           limit: 1000,
         })
         await golbal.$fcl.tx(res).onceSealed()
-        console.log("res======="+res)
       }catch(err){
-        console.log("err========="+err)
+        console.log("err::"+err)
       }
  }
 
@@ -191,7 +187,7 @@ const create_listing =  async (nft,saleDetails) =>{
   if (!formEl) return
   formEl.validate((valid) => {
     if (valid) {
-      console.log('submit!====='+valid)
+      console.log('submit!==='+valid)
     } else {
       console.log('error submit!')
       return false

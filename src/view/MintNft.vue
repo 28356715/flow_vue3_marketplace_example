@@ -37,12 +37,11 @@ interface properties {
 
 const golbal  = getCurrentInstance()!.appContext.config.globalProperties
 const fileList = ref([]);
-const propertiesList:Array<properties> = reactive([{key:"01",value:"Art"},{key:"02",value:"Music"},{key:"03",value:"Video"},{key:"04",value:"Virtual Worlds"}])
 
-// const file = {}
 const form = reactive({
   name: '',
   desc: '',
+  // 图片可以存储的ipfs，工程已经集成ipfs，自己去尝试
   url:'https://ipfs.io/ipfs/QmSWoRgRzjb1t76tj2owXwb1APbSWUeAfz46W8ZxvevxKV',
   externalUrl:'',
   properties:'01'
@@ -79,15 +78,14 @@ const mintNft = async ()=>{
         let res=await golbal.$fcl.mutate({
           cadence:MINT_EXAMPLE_NFT,
           args:(arg,t)=>[
-            arg(name,t.String),//name: String
-            arg("https://ipfs.io/ipfs/QmSWoRgRzjb1t76tj2owXwb1APbSWUeAfz46W8ZxvevxKV",t.String),//url.String,
-            arg(desc,t.String),//escription: String
+            arg(name,t.String),
+            arg(form.url,t.String),
+            arg(desc,t.String),
           ],
         })
         await golbal.$fcl.tx(res).onceSealed()
-        console.log("res======="+res)
       }catch(err){
-        console.log("err========="+err)
+        console.log("err：："+err)
       }
 }
 

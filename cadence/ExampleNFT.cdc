@@ -83,7 +83,7 @@ pub contract ExampleNFT: NonFungibleToken {
             // should be the same as the argument to the function
             post {
                 (result == nil) || (result?.id == id):
-                    "Cannot borrow KittyItem reference: The ID of the returned reference is incorrect"
+                    "Cannot borrow ExampleNFT reference: The ID of the returned reference is incorrect"
             }
         }
     }
@@ -139,10 +139,10 @@ pub contract ExampleNFT: NonFungibleToken {
             return (&self.ownedNFTs[id] as &NonFungibleToken.NFT?)!
         }
 
-        // borrowKittyItem
-        // Gets a reference to an NFT in the collection as a KittyItem,
+        // borrowExampleNFT
+        // Gets a reference to an NFT in the collection as a ExampleNFT,
         // exposing all of its fields (including the typeID & rarityID).
-        // This is safe as there are no functions that can be called on the KittyItem.
+        // This is safe as there are no functions that can be called on the ExampleNFT.
         //
         pub fun borrowExampleNFT(id: UInt64): &ExampleNFT.NFT? {
             if self.ownedNFTs[id] != nil {

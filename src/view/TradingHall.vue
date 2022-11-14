@@ -44,7 +44,6 @@ const golbal  = getCurrentInstance()!.appContext.config.globalProperties
    })
 
 const currentDate = ref(new Date())
-// import type { TabsPaneContext } from 'element-plus'
 
 const activeName = ref('first')
 
@@ -62,7 +61,6 @@ interface saleModel {
 //获取市场列表
 const getNftList = async () =>{
    try{ 
-       console.log("getNftList====")
        let res = await golbal.$fcl.query({
           cadence: GET_NFTS_MARKET ,
         })
@@ -81,7 +79,6 @@ const getNftList = async () =>{
           e.name = res[key].name
           e.sellerAddress = res[key].sellerAddress 
           saleNfts.push(e)
-          console.log("resffff======="+e.price)
        })
 
       }catch(err){
@@ -97,15 +94,14 @@ const getNftList = async () =>{
         let res=await golbal.$fcl.mutate({
           cadence: PURCHASE_LISTING,
           args:(arg,t)=>[
-            arg(item.id,t.UInt64),//ecipient: Address,
-            arg(item.sellerAddress,t.Address),//name: String
+            arg(item.id,t.UInt64),
+            arg(item.sellerAddress,t.Address),
           ],
           limit: 1000,
         })
         await golbal.$fcl.tx(res).onceSealed()
-        console.log("res======="+res)
       }catch(err){
-        console.log("err========="+err)
+        console.log("err::"+err)
       }
  }
 

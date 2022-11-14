@@ -6,7 +6,7 @@ transaction(name:String,url:String,desc:String){
     let collectionRef:&ExampleNFT.Collection
     prepare(account:AuthAccount){
 
-    // 铸造nft，colletion 存储nft
+    // 铸造nft,colletion 存储nft
     if account.borrow<&ExampleNFT.Collection>(from:ExampleNFT.CollectionStoragePath)==nil {
     let colletion <- ExampleNFT.createEmptyCollection()
     

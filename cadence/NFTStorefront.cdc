@@ -247,7 +247,6 @@ pub contract NFTStorefront {
             // Pay each beneficiary their amount of the payment.
             for cut in self.details.saleCuts {
                 if let receiver = cut.receiver.borrow() {
-                //购买者把自己钱去除
                    let paymentCut <- payment.withdraw(amount: cut.amount)
                     receiver.deposit(from: <-paymentCut)
                     if (residualReceiver == nil) {

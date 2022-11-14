@@ -196,3 +196,4 @@ pub contract FlowToken: FungibleToken {
         emit TokensInitialized(initialSupply: self.totalSupply)
     }
 }
+ 

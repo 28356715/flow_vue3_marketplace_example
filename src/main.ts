@@ -11,16 +11,15 @@ import '@/assets/css/main.css';
 
 
 fcl.config({
-    // "discovery.wallet":flow.VUE_APP_WALLET_DISCOVERY , // Endpoint set to Testnet
+    // "discovery.wallet":flow.VUE_APP_WALLET_DISCOVERY , //The configuration file sets the endpoint to Testnet
     "discovery.wallet":'https://fcl-discovery.onflow.org/testnet/authn' , // Endpoint set to Testnet
-    // "accessNode.api":flow.VUE_APP_ACCESS_NODE,
+    // "accessNode.api":flow.VUE_APP_ACCESS_NODE,////The config
     "accessNode.api":'https://rest-testnet.onflow.org',
 
     "app.detail.title": "ExampleNFT",//dapp title   标题
     // "app.detail.icon":"https://placekitten.com/g/200/200" //dapp icon
 
-    // 脚本和交易中的地址替换
-    // "0xPioneerNFT":flow.VUE_APP_PIONEERNFT,
+    // 脚本和交易中的地址配置
     "0xNonFungibleToken":flow.VUE_APP_NonFungibleToken,
     "0xFlowToken":flow.VUE_APP_FlowToken,
     "0xFungibleToken":flow.VUE_APP_FungibleToken,

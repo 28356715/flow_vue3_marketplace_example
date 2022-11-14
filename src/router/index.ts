@@ -1,12 +1,12 @@
-import loot from '@/view/TradingHall.vue'
+import trade from '@/view/TradingHall.vue'
 
 import { createRouter,createWebHashHistory} from "vue-router";
 const routes = [
-  { path: "/", component: loot },  
+  { path: "/", component: trade },  
     {
       path: '/trade',
       name: 'trade',
-      component: () => import(/* webpackChunkName: "trade" */ '@/view/TradingHall.vue'),
+      component: trade,
     },
     {
       path: '/collections',
